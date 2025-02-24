@@ -1,12 +1,18 @@
 import { Suspense } from 'react'
 import './App.css'
-import Home from './pages/home/Home'
+import Navbar from './component/navbar/Navbar'
+import Footer from './component/footer/Footer'
+import { Outlet } from 'react-router'
 
 function App() {
 
   return (
     <Suspense>
-      <Home />
+      <Navbar />
+      <div className='max-w-7xl mx-auto'>
+        <Outlet />
+      </div>
+      <Footer />
     </Suspense>
   )
 }

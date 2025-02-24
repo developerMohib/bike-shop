@@ -1,13 +1,13 @@
-import { Outlet } from "react-router";
-import Navbar from "../../component/navbar/Navbar";
-import Footer from "../../component/footer/Footer";
+import Banner from "../../component/banner/Banner";
+import ProductCard from "../../component/productCard/ProductCard";
+import Review from "../../component/review/Review";
 
 const Home: React.FC = () => {
     return (
         <div>
-            <Navbar />
-            <Outlet />
-            <Footer />
+            <Banner />
+            <ProductCard/>
+            <Review />
         </div>
     );
 };

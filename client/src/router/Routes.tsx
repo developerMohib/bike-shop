@@ -5,12 +5,14 @@ import Contact from "../pages/contact/Contact";
 import Login from "../pages/auth/Login";
 import Registration from "../pages/auth/Registration";
 import Product from "../pages/product/Product";
+import Home from "../pages/home/Home";
 
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<App />}>
+        <Route index element={<Home />} />
         <Route path="/products" element={<Product />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />

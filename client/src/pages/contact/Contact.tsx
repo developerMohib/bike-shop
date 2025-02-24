@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
     const [agreed, setAgreed] = useState(false)
 
     return (
-        <main className="bg-white">
+        <main className="">
             <div className="px-6 py-12 sm:py-16 lg:px-4">
                 <div
                     aria-hidden="true"
