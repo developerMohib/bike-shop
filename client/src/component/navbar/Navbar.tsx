@@ -137,8 +137,10 @@ const navigation = {
     },
   ],
   pages: [
-    { name: 'Company', href: '#' },
-    { name: 'Stores', href: '#' },
+    { name: 'Company', href: '/' },
+    { name: 'Products', href: '/products' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Contact Us', href: '/contact' },
   ],
 }
 
@@ -202,10 +204,10 @@ export default function Navbar() {
                             src={item.imageSrc}
                             className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"
                           />
-                          <a href={item.href} className="mt-6 block font-medium text-gray-900">
+                          <Link to={item.href} className="mt-6 block font-medium text-gray-900">
                             <span aria-hidden="true" className="absolute inset-0 z-10" />
                             {item.name}
-                          </a>
+                          </Link>
                           <p aria-hidden="true" className="mt-1">
                             Shop now
                           </p>
@@ -224,9 +226,9 @@ export default function Navbar() {
                         >
                           {section.items.map((item) => (
                             <li key={item.name} className="flow-root">
-                              <a href={item.href} className="-m-2 block p-2 text-gray-500">
+                              <Link to={item.href} className="-m-2 block p-2 text-gray-500">
                                 {item.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
@@ -240,9 +242,9 @@ export default function Navbar() {
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               {navigation.pages.map((page) => (
                 <div key={page.name} className="flow-root">
-                  <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
+                  <Link to={page.href} className="-m-2 block p-2 font-medium text-gray-900">
                     {page.name}
-                  </a>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -261,7 +263,7 @@ export default function Navbar() {
             </div>
 
             <div className="border-t border-gray-200 px-4 py-6">
-              <a href="#" className="-m-2 flex items-center p-2">
+              <Link to="/" className="-m-2 flex items-center p-2">
                 <img
                   alt=""
                   src="https://tailwindui.com/plus-assets/img/flags/flag-canada.svg"
@@ -269,7 +271,7 @@ export default function Navbar() {
                 />
                 <span className="ml-3 block text-base font-medium text-gray-900">CAD</span>
                 <span className="sr-only">, change currency</span>
-              </a>
+              </Link>
             </div>
           </DialogPanel>
         </div>
@@ -298,14 +300,14 @@ export default function Navbar() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="#">
+                <Link to="/">
                   <span className="sr-only">Your Company</span>
                   <img
                     alt=""
                     src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
                     className="h-8 w-auto"
                   />
-                </a>
+                </Link>
               </div>
 
               {/* Flyout menus */}
@@ -337,10 +339,10 @@ export default function Navbar() {
                                       src={item.imageSrc}
                                       className="aspect-square w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"
                                     />
-                                    <a href={item.href} className="mt-6 block font-medium text-gray-900">
+                                    <Link to={item.href} className="mt-6 block font-medium text-gray-900">
                                       <span aria-hidden="true" className="absolute inset-0 z-10" />
                                       {item.name}
-                                    </a>
+                                    </Link>
                                     <p aria-hidden="true" className="mt-1">
                                       Shop now
                                     </p>
@@ -360,9 +362,9 @@ export default function Navbar() {
                                     >
                                       {section.items.map((item) => (
                                         <li key={item.name} className="flex">
-                                          <a href={item.href} className="hover:text-gray-800">
+                                          <Link to={item.href} className="hover:text-gray-800">
                                             {item.name}
-                                          </a>
+                                          </Link>
                                         </li>
                                       ))}
                                     </ul>
