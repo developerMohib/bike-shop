@@ -1,13 +1,12 @@
 import { Suspense } from 'react'
 import './App.css'
+import Home from './pages/home/Home'
 
 function App() {
 
   return (
     <Suspense>
-      <h1 className="text-3xl font-bold underline text-center">
-        Hello world!
-      </h1>
+      <Home />
     </Suspense>
   )
 }

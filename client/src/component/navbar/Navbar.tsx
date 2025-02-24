@@ -16,6 +16,7 @@ import {
   TabPanels,
 } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router'
 
 const navigation = {
   categories: [
@@ -143,6 +144,12 @@ const navigation = {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const handleClose = (event: React.MouseEvent<HTMLSpanElement>) => {
+    const alertBox = event.currentTarget.parentElement;
+    if (alertBox) {
+      alertBox.style.display = 'none';
+    }
+  };
 
   return (
     <div className="bg-white">
@@ -242,14 +249,14 @@ export default function Navbar() {
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                <Link to="/login" className="-m-2 block p-2 font-medium text-gray-900">
                   Sign in
-                </a>
+                </Link>
               </div>
               <div className="flow-root">
-                <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                  Create account
-                </a>
+                <Link to="/registration" className="-m-2 block p-2 font-medium text-gray-900">
+                  Create Account
+                </Link>
               </div>
             </div>
 
@@ -269,9 +276,12 @@ export default function Navbar() {
       </Dialog>
 
       <header className="relative bg-white">
-        <p className="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-          Get free delivery on orders over $100
-        </p>
+        <div className="alert justify-between bg-indigo-600 px-4 pb-1.5 text-sm font-medium text-white sm:px-6 lg:px-8 flex items-center">
+          Danger! Indicates a dangerous or potentially negative action.
+          <span className="closebtn px-1 text-3xl cursor-pointer" onClick={handleClose}>
+            &times;
+          </span>
+        </div>
 
         <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="border-b border-gray-200">
@@ -304,7 +314,7 @@ export default function Navbar() {
                   {navigation.categories.map((category) => (
                     <Popover key={category.name} className="flex">
                       <div className="relative flex">
-                        <PopoverButton className="relative z-10 -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:text-gray-800 data-open:border-indigo-600 data-open:text-indigo-600">
+                        <PopoverButton className="relative z-10 -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:text-gray-800 data-open:border-indigo-600 data-open:text-indigo-600 cursor-pointer">
                           {category.name}
                         </PopoverButton>
                       </div>
@@ -379,17 +389,9 @@ export default function Navbar() {
               </PopoverGroup>
 
               <div className="ml-auto flex items-center">
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Sign in
-                  </a>
-                  <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
-                  <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Create account
-                  </a>
-                </div>
 
-                <div className="hidden lg:ml-8 lg:flex">
+
+                <div className="hidden lg:flex">
                   <a href="#" className="flex items-center text-gray-700 hover:text-gray-800">
                     <img
                       alt=""
@@ -402,7 +404,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Search */}
-                <div className="flex lg:ml-6">
+                <div className="flex lg:ml-2">
                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
                     <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
@@ -410,8 +412,8 @@ export default function Navbar() {
                 </div>
 
                 {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 flex items-center p-2">
+                <div className="flow-root">
+                  <a href="#" className="group flex items-center p-2">
                     <ShoppingBagIcon
                       aria-hidden="true"
                       className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
@@ -420,6 +422,20 @@ export default function Navbar() {
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
                 </div>
+
+                {/* Sign in / Registe  */}
+                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-3">
+                  <Link to="/login" className="-m-2 block p-2 font-medium text-gray-900">
+                    Sign in
+                  </Link>
+                  <span aria-hidden="true" className="h-6 w-px ml-2.5 bg-gray-200" />
+                  <Link to="/registration" className="-m-2 block p-2 font-medium text-gray-900">
+                    Create Account
+                  </Link>
+                </div>
+
+
+
               </div>
             </div>
           </div>

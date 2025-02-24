@@ -1,8 +1,13 @@
+import { Outlet } from "react-router";
+import Navbar from "../../component/navbar/Navbar";
+import Footer from "../../component/footer/Footer";
 
-const Home : React.FC = () => {
+const Home: React.FC = () => {
     return (
         <div>
-            <h1>This is home page</h1>
+            <Navbar />
+            <Outlet />
+            <Footer />
         </div>
     );
 };
